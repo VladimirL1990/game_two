@@ -135,28 +135,19 @@ gameLoop();
 // Спавн новых сердечек каждую секунду
 setInterval(spawnHeart, 1000);  // Сердечки падают каждую секунду
 
-// Добавление сенсорных событий
-let touchStartX = null;
+const leftButton = document.getElementById('leftButton');
+const rightButton = document.getElementById('rightButton');
 
-document.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].clientX;
-});
+// Обработчики нажатий на кнопки
+leftButton.addEventListener('mousedown', () => isMovingLeft = true);
+rightButton.addEventListener('mousedown', () => isMovingRight = true);
 
-document.addEventListener('touchmove', (e) => {
-    const touchEndX = e.touches[0].clientX;
+leftButton.addEventListener('mouseup', () => isMovingLeft = false);
+rightButton.addEventListener('mouseup', () => isMovingRight = false);
 
-    if (touchStartX && touchEndX) {
-        if (touchEndX > touchStartX + 10) {
-            isMovingRight = true;
-            isMovingLeft = false;
-        } else if (touchEndX < touchStartX - 10) {
-            isMovingLeft = true;
-            isMovingRight = false;
-        }
-    }
-});
+// Для сенсорных устройств
+leftButton.addEventListener('touchstart', () => isMovingLeft = true);
+rightButton.addEventListener('touchstart', () => isMovingRight = true);
 
-document.addEventListener('touchend', () => {
-    isMovingRight = false;
-    isMovingLeft = false;
-});
+leftButton.addEventListener('touchend', () => isMovingLeft = false);
+rightButton.addEventListener('touchend', () => isMovingRight = false);

@@ -109,6 +109,33 @@ body {
 	animation: fadeInOut 3s ease-in-out;
 }
 
+#controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+#leftButton, #rightButton {
+    width: 45%;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px #ccc;
+    cursor: pointer;
+}
+
+#leftButton:active, #rightButton:active {
+    box-shadow: 0 2px #bbb;
+    transform: translateY(2px);
+}
+
+
 /* Адаптивные стили для мобильных устройств */
 @media (max-width: 768px) {
 	#game {

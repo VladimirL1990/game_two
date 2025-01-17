@@ -48,7 +48,7 @@ body {
 /* Стиль для счета */
 #score {
 	position: absolute;
-	bottom: 40px;
+	bottom: 60px;
 	left: 20px;
 	font-size: 24px;
 	color: #fff;
